@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <form>
+          <div class="input">
+            <input class="display" type="text" name="display" />
+          </div>
+          <div>
+            <input
+              style="background-color: #6e6e6e; border: 0; color: white"
+              class="buttons"
+              type="button"
+              value="AC"
+            />
+            <input
+              style="background-color: #6e6e6e; border: 0; color: white"
+              class="buttons"
+              type="button"
+              value="%"
+            />
+            <input
+              style="background-color: #6e6e6e; border: 0; color: white"
+              class="buttons"
+              type="button"
+              value="."
+            />
+            <input
+              style="background-color: #6e6e6e; border: 0; color: white"
+              class="buttons"
+              type="button"
+              value="/"
+            />
+          </div>
+          <div>
+            <input class="buttons" type="button" value="7" />
+            <input class="buttons" type="button" value="8" />
+            <input class="buttons" type="button" value="9" />
+            <input
+              style="background-color: #6e6e6e; border: 0; color: white"
+              class="buttons"
+              type="button"
+              value="*"
+            />
+          </div>
+          <div>
+            <input class="buttons" type="button" value="4" />
+            <input class="buttons" type="button" value="5" />
+            <input class="buttons" type="button" value="6" />
+            <input
+              style="background-color: #6e6e6e; border: 0; color: white"
+              class="buttons"
+              type="button"
+              value="-"
+            />
+          </div>
+          <div>
+            <input class="buttons" type="button" value="1" />
+            <input class="buttons" type="button" value="2" />
+            <input class="buttons" type="button" value="3" />
+            <input
+              style="background-color: #6e6e6e; border: 0; color: white"
+              class="buttons"
+              type="button"
+              value="+"
+            />
+          </div>
+          <div>
+            <input class="buttons" type="button" value="00" />
+            <input class="buttons" type="button" value="0" />
+            <input class="buttons equal" type="button" value="=" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    let result = "";
+    let display = document.querySelector(".display");
+    let buttons = document.querySelectorAll("input[type='button']");
+    Array.from(buttons).forEach((button) => {
+      button.addEventListener("click", (e) => {
+        if (e.target.value == "=") {
+          result = eval(result);
+          display.value = result;
+        } else if (e.target.value == "AC") {
+          result = "";
+          display.value = result;
+        } else {
+          result = result + e.target.value;
+          display.value = result;
+        }
+      });
+    });
+  </script>
+</html>
